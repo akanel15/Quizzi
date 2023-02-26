@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="bar.css">
+    <link rel="stylesheet" href="image.css">
+    <script src="game.js"></script>
+
+    <script type="text/javascript">
+      $(window).on('load', function() {
+
+        window.scrollTo(0,document.body.scrollHeight);
+        var modelShown = localStorage.getItem('modelShown');
+        if(modelShown != 'TRUE'){
+          $('#staticStageFour').modal('show');
+        }
+        else {
+          return_from_question();
+        }
+        modal_proceed('base_but');
+      });
+    </script>
+
+    <title>Quizzi</title>
+  </head>
+  <body style="background-color:#ff9a8a;">
+    <main class="container">
+
+
+        <section class="py-5 text-center container">
+          <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="display-4 fst-italic">Quizzi</h1>
+            </div>
+          </div>
+
+
+  <!-- Modal 4 -->
+  <div class="modal fade" id="staticStageFour" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Basic Prizes</h5>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+            <p>
+              <strong>Select one</strong>
+            </p>
+          </div>
+
+          <hr>
+
+          <!-- Radio -->
+          <div class="form-check mb-4" id="filterDay">
+            <input class="form-check-input" name="group1" type="radio" id="base-radio-1" value="Basic Prize 1" checked>
+            <label class="form-check-label" for="base-radio-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Basic Prize 1">Basic Prize 1</label>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="base-radio-2" value="Basic Prize 2">
+            <label class="form-check-label" for="base-radio-2" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Basic Prize 2">Basic Prize 2</label>
+          </div>
+
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="base-radio-3" value="Basic Prize 3">
+            <label class="form-check-label" for="base-radio-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Basic Prize 3">Basic Prize 3</label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" onclick="store_prizes('group1'); modal_proceed('great_but');" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticStageFive" id="base_but" disabled>On to the better ones!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="modal fade" id="staticStageFive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Good Prizes</h5>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+            <p>
+              <strong>Select one</strong>
+            </p>
+          </div>
+
+          <hr>
+
+          <!-- Radio -->
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="great-radio-1" value="Good Prize 1" checked>
+            <label class="form-check-label" for="great-radio-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Good Prize 1">Good Prize 1</label>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="great-radio-2" value="Good Prize 2">
+            <label class="form-check-label" for="great-radio-2" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Good Prize 2">Good Prize 2</label>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="great-radio-3" value="Good Prize 3">
+            <label class="form-check-label" for="great-radio-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Good Prize 3">Good Prize 3</label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" onclick="store_prizes('group1'); modal_proceed('legendary_but');" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticStageSix" id="great_but" disabled>Onto the next!!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="modal fade" id="staticStageSix" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Legendary Rewards</h5>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+            <p>
+              <strong>Select one</strong>
+            </p>
+          </div>
+
+          <hr>
+
+          <!-- Radio -->
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="leg-radio-1" value="Legendary Prize 1" checked>
+            <label class="form-check-label" for="leg-radio-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Legendary Prize 1">Legendary Prize 1</label>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="leg-radio-2" value="Legendary Prize 2">
+            <label class="form-check-label" for="leg-radio-2" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Legendary Prize 2">Legendary Prize 3</label>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" name="group1" type="radio" id="leg-radio-3" value="Legendary Prize 3">
+            <label class="form-check-label" for="leg-radio-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Example Legendary Prize 1">Legendary Prize 3</label>
+          </div>
+
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" onclick="store_prizes('group1'); display_prizes();" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticStageSeven" id="legendary_but" disabled>Done!!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 7 -->
+  <div class="modal fade" id="staticStageSeven" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Prize Review</h5>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+            <p>
+              <strong>Are you ready to play for the following prizes?
+            </p>
+            <hr>
+            <ul class="list-group">
+              <li class="list-group-item" id="prize1">An item</li>
+              <li class="list-group-item" id="prize2">A second item</li>
+              <li class="list-group-item" id="prize3">A third item</li>
+              <li class="list-group-item">AND a mystery prize!</li>
+
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" onclick = "revert()" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticStageFour">Edit prizes</button>
+          <button type="button" onclick = "game_start()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticStageSeven">Let's go!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- game part -->
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <br>
+        <br>
+        Hard
+        <br>
+        300 Points
+      </div>
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([300,1])" id="300,1">
+        <a href="question.html">
+          <img src="photos/writing.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([300,2])" id="300,2">
+        <a href="question.html">
+          <img src="photos/basketeball.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([300,3])" id="300,3">
+        <a href="question.html">
+          <img src="photos/movie.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([300,4])" id="300,4">
+        <a href="question.html">
+          <img src="photos/sphere.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([300,5])" id="300,5">
+        <a href="question.html">
+          <img src="photos/me.png" width="150" height="150">
+        </a>
+      </div>
+
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <br>
+        <br>
+        Medium
+        <br>
+        200 Points
+      </div>
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([200,1])" id="200,1">
+        <a href="question.html">
+          <img src="photos/me.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([200,2])" id="200,2">
+        <a href="question.html">
+          <img src="photos/movie.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([200,3])" id="200,3">
+        <a href="question.html">
+          <img src="photos/sphere.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([200,4])" id="200,4">
+        <a href="question.html">
+          <img src="photos/writing.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([200,5])" id="200,5">
+        <a href="question.html">
+          <img src="photos/basketeball.png" width="150" height="150">
+        </a>
+      </div>
+
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col">
+        <br>
+        <br>
+        Easy
+        <br>
+        100 Points
+      </div>
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([100,1])" id="100,1">
+        <a href="question.html">
+          <img src="photos/sphere.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([100,2])" id="100,2">
+        <a href="question.html">
+          <img src="photos/me.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([100,3])" id="100,3">
+        <a href="question.html">
+          <img src="photos/writing.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([100,4])" id="100,4">
+        <a href="question.html">
+          <img src="photos/basketeball.png" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- column 1  -->
+      <div class="col" onclick="pick_question([100,5])" id="100,5">
+        <a href="question.html">
+          <img src="photos/movie.png" width="150" height="150">
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center" id="basic_prize">
+        </div>
+        <!-- column 1  -->
+        <div class="col" id="great_prize">
+        </div>
+
+        <!-- column 1  -->
+        <div class="col" id="legendary_prize">
+        </div>
+
+        <!-- column 1  -->
+        <div class="col" id="mystery_prize">
+        </div>
+
+      </div>
+    </div>
+    <div class="w3-light-grey">
+      <div id="myBar"class="w3-container w3-blue" style="width:0%">0</div>
+    </div><br>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col text-center" id="thresh1">
+          400 points
+        </div>
+        <!-- column 1  -->
+        <div class="col" id="thresh2">
+          1200 points
+        </div>
+
+        <!-- column 1  -->
+        <div class="col" id="thresh3">
+          2000 points
+        </div>
+
+        <!-- column 1  -->
+        <div class="col" id="thresh4">
+          2600 points
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

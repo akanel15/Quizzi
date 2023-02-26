@@ -1,0 +1,71 @@
+/* Container styles */
+:root {
+  --total-outer: 534;
+  --offset-outer: 0;
+  --outer-colour: #f0f0f0;
+  --inner-colour: #add8e6;
+
+  --offset-off-outer: 0;
+  --offset-def-outer: 0;
+}
+
+.rankingChart {
+  position: relative;
+  display: inline-block;
+  color: #999;
+  font-size: 20px;
+  text-align: center;
+  height: 190px;
+  width: 190px;
+}
+
+.rankingChart figcaption {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 100px;
+  line-height: 50px;
+  font-size: 3rem;
+}
+
+/* END Container styles */
+.rankingChart svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rankingInner {
+  fill: transparent;
+  stroke: var(--inner-colour);
+  stroke-width: 20;
+  stroke-dasharray: var(--total-outer);
+  transition: stroke-dashoffset 1s;
+}
+
+.rankingOuter {
+  fill: transparent;
+  stroke: var(--outer-colour);
+  stroke-width: 20;
+  stroke-dasharray: var(--total-outer);
+  transition: stroke-dashoffset 1s;
+}
+
+/* Overall ranking chart animation */
+
+
+.rankingChart .rankingOuter {
+  stroke-dashoffset: var(--offset-outer);
+}
+
+@keyframes rankshow {
+  from {
+    stroke-dashoffset: var(--total-outer);
+  }
+
+  to {
+    stroke-dashoffset: var(--offset-outer);
+  }
+}

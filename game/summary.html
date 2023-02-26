@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="summary.css">
+    <link rel="stylesheet" href="loading.css">
+
+    <title>Quizzi</title>
+  </head>
+  <body style="background-color:#ff9a8a;">
+    <main class="container">
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="display-4 fst-italic">Quizzi</h1>
+            <p class="lead my-3 typer" id="msg1">Thanks for playing!</p>
+            <p class="lead my-3 typer" id="msg2">Hope you enjoyed</p>
+            <p class="lead my-3 typer" id="msg3">See you next time!</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center">
+        <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+        <p>
+          <strong id="summaryHeading"></strong>
+        </p>
+        <ul class="list-group">
+          <li class="list-group-item" id="prize1"  style="background-color:#87a96b;"></li>
+          <li class="list-group-item" id="prize2"  style="background-color:#87a96b;"></li>
+          <li class="list-group-item" id="prize3"  style="background-color:#87a96b;"></li>
+          <li class="list-group-item" id="prize4"  style="background-color:#87a96b;"></li>
+
+        </ul>
+        <br>
+        <button type="button" class="btn btn-primary" onclick="bonusPoints()" data-bs-toggle="modal" data-bs-target="#prizesModal" id="finalBut">Claim Prizes</button>
+      </div>
+
+
+      <!-- Modal final -->
+      <div class="modal fade" id="prizesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="text-center">
+                <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+                <p id="finalMsg"></p>
+                <p id="manyPoints"></p>
+              </div>
+            </div>
+
+            <div class="modal-footer" id="finalFooter">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="summary.js"></script>
+  </body>
+</html>
